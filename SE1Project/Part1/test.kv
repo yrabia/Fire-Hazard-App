@@ -1,0 +1,114 @@
+<MainScreen>:
+    canvas.before:
+        Color:
+            rgba: 1, 0, 0, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    BoxLayout:
+        orientation: 'vertical'
+        size: root.size
+
+        Label:
+            id: label1:
+            color: 1, 1, 1, 1
+            font_size: 40
+            text: "Disaster List"
+
+        Button:
+            id: button1
+            font_size: 30
+            text: "Wildfires"
+            on_press: root.manager.current = 'wildFires'
+        Button:
+            id: button2
+            font_size: 30
+            text: "Earthquakes"
+            on_press: root.manager.current = 'earthquakes'
+        Button:
+            id: button3
+            font_size: 30
+            text: "Tsunamis"
+            on_press: root.manager.current = 'tsunamis'
+        Button:
+            id: button4
+            font_size: 30
+            text: "Floods"
+            on_press: root.manager.current = 'floods'
+        Button:
+            id: button5
+            font_size: 30
+            text: "Landslides and Mudslides"
+            on_press: root.manager.current = 'landslides'
+
+<SubScreen>:
+
+    BoxLayout:
+        orientation: 'vertical'
+        size: root.size
+
+        BoxLayout:
+            Button:
+                size_hint_x: 0.2
+                text : "Back"
+                on_press: root.manager.current = 'main'
+
+            Label:
+                size_hint_x: 0.8
+                text:root.disasterName
+        ScrollView:
+            size_hint_y: 10
+            BoxLayout:
+                size_hint_y: None
+                orientation: "vertical"
+                height: self.minimum_height
+                Label:
+                    id: disasterName
+                    size_hint_y: None
+                    font_size: 40
+                    color: (0,0,0,1)
+                    text: root.disasterName
+                    height: 100
+
+                    canvas.before:
+                        Color:
+                            rgba: 1, 1, 1, 1
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size
+
+                Label:
+                    id: description
+                    size_hint_y: None
+                    font_size: 20
+                    color: (0,0,0,1)
+                    text: 'DESCRIPTION :  ' + root.description
+                    halign: 'left'
+                    text_size: self.width, None
+                    height: 300
+
+                    canvas.before:
+                        Color:
+                            rgba: 1, 1, 1, 1
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size
+
+                Label:
+                    id: howToPrepare
+                    size_hint_y: None
+                    font_size: 20
+                    color: (0,0,0,1)
+                    text: 'HOW TO PREPARE :  ' + root.howToPrepare
+                    halign: 'left'
+                    text_size: self.width, None
+                    height: 400
+
+                    canvas.before:
+                        Color:
+                            rgba: 1, 1, 1, 1
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size
+

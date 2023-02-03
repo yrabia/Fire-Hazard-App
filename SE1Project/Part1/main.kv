@@ -1,0 +1,12 @@
+#:include FarmersMapView.kv
+#:import DisasterAppApp ui.DisasterAppApp
+BoxLayout:
+    orientation: 'vertical'
+    MDToolbar:
+        title: "Set Current Address"
+        right_action_items: [['magnify',lambda x: app.search_menu.open()]]
+        left_action_items:[['left-512.png',lambda x: DisasterAppApp().start_over()]]
+        md_bg_color: app.theme_cls.primary_color
+
+    FarmersMapView:
+        id: mapview

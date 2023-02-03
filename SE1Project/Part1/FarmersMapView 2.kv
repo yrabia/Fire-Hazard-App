@@ -1,0 +1,13 @@
+#:import MapView kivy.garden.mapview.MapView
+
+<FarmersMapView>:
+     lat: 37.7749
+     lon: -122.4194
+     zoom:6
+     on_zoom:
+          self.zoom=6 if self.zoom <6 else self.zoom
+
+     on_lat:
+          self.start_getting_markets_in_fov()
+     on_lon:
+          self.start_getting_markets_in_fov()
